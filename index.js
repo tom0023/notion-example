@@ -1,9 +1,11 @@
 import { Client } from "@notionhq/client"
 
-const notion = new Client({ auth: process.env.NOTION_KEY })
 
+const notion = new Client({ auth: process.env.NOTION_KEY })
 const databaseId = process.env.NOTION_DATABASE_ID
 
+
+// データベース取得
 const response = await notion.databases.retrieve({
   database_id: databaseId,
   filter: {
@@ -14,6 +16,7 @@ const response = await notion.databases.retrieve({
   }
 });
 console.log(response);
+
 
 // データ挿入
 // async function addItem(text) {
@@ -41,6 +44,11 @@ console.log(response);
 //     console.error(error.body)
 //   }
 // }
-
 // addItem("追記テスト")
 
+
+
+
+// ユーザー所得
+// const userList = await notion.users.list();
+// console.log(userList);
